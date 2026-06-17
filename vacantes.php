@@ -1,20 +1,23 @@
 <?php
+    // por defecto carga las respuestas en json
     header('Content-Type: application/json; charset=utf-8');
 
     // header("Access-Control-Allow-Origin: *");
     // header("Access-Control-Allow-Methods: POST, OPTIONS");
     // header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
+    // condicional, para evualar si el servidor tiene el metodo options
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         http_response_code(204);
         exit();
     }
 
+    // manda a llamar los archivos requeridos
     require_once 'class/Vacantes.php';
     require_once 'config/bd.php';
 
     try {
-
+        // condicional, para evaluar que el metodo sea post
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             http_response_code(405);
             throw new Exception(
@@ -22,6 +25,7 @@
             );
         }
 
+        //tenemos la variable global $_post donde se guardan los datos enviados del formulario
         $nombre   = trim($_POST['nombre'] ?? '');
         $correo   = trim($_POST['correo'] ?? '');
         $telefono = trim($_POST['telefono'] ?? '');
