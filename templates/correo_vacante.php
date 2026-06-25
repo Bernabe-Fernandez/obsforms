@@ -66,7 +66,7 @@
     <body>
     <div class="container">
 
-        <h2>📩 Nueva solicitud de vacante</h2>
+        <h2>Nueva solicitud de vacante</h2>
 
         <div class="field">
             <span class="label">Nombre:</span>
