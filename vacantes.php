@@ -161,11 +161,11 @@
 
         $vacante = new Vacantes($conexion);
 
-        $vacante->createVacantes(
+        $vacante->procesarVacante(
             $nombre,
             $correo,
             $telefono,
-            $nombreArchivo,
+            $rutaCompleta,
             $mensaje
         );
 
