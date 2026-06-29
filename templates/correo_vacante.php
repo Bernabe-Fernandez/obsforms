@@ -1,103 +1,118 @@
 <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background: #f4f4f4;
-                margin: 0;
-                padding: 20px;
-            }
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Solicitud de Vacante</title>
+</head>
 
-            .container {
-                max-width: 600px;
-                margin: auto;
-                background: #ffffff;
-                border-radius: 8px;
-                padding: 20px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            }
+<body style="margin:0;padding:0;background-color:#f4f6f9;font-family:Arial,Helvetica,sans-serif;">
 
-            h2 {
-                color: #2d87f0;
-                margin-bottom: 20px;
-            }
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f6f9;padding:30px 0;">
+    <tr>
+        <td align="center">
 
-            .field {
-                margin-bottom: 12px;
-                font-size: 14px;
-            }
+            <table width="650" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb;">
 
-            .label {
-                font-weight: bold;
-                color: #333;
-            }
+                <!-- Encabezado -->
+                <tr>
+                    <td style="background:#1f4e79;padding:25px 30px;">
+                        <h2 style="margin:0;color:#ffffff;font-size:24px;font-weight:600;">
+                            Nueva Solicitud de Vacante
+                        </h2>
+                    </td>
+                </tr>
 
-            .value {
-                color: #555;
-            }
+                <!-- Contenido -->
+                <tr>
+                    <td style="padding:30px;">
 
-            .message-box {
-                background: #f9f9f9;
-                padding: 10px;
-                border-radius: 6px;
-                margin-top: 5px;
-            }
+                        <p style="margin-top:0;color:#374151;font-size:14px;line-height:1.6;">
+                            Se ha recibido una nueva solicitud de empleo a través del portal de reclutamiento.
+                        </p>
 
-            .footer {
-                margin-top: 25px;
-                font-size: 12px;
-                color: #888;
-                text-align: center;
-            }
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
 
-            .badge {
-                display: inline-block;
-                padding: 4px 10px;
-                background: #2d87f0;
-                color: white;
-                font-size: 12px;
-                border-radius: 4px;
-            }
-        </style>
-    </head>
+                            <tr>
+                                <td style="padding:12px 0;border-bottom:1px solid #e5e7eb;">
+                                    <strong style="color:#111827;">Nombre:</strong><br>
+                                    <span style="color:#4b5563;">
+                                        <?= htmlspecialchars($nombre) ?>
+                                    </span>
+                                </td>
+                            </tr>
 
-    <body>
-    <div class="container">
+                            <tr>
+                                <td style="padding:12px 0;border-bottom:1px solid #e5e7eb;">
+                                    <strong style="color:#111827;">Correo Electrónico:</strong><br>
+                                    <span style="color:#4b5563;">
+                                        <?= htmlspecialchars($correo) ?>
+                                    </span>
+                                </td>
+                            </tr>
 
-        <h2>Nueva solicitud de vacante</h2>
+                            <tr>
+                                <td style="padding:12px 0;border-bottom:1px solid #e5e7eb;">
+                                    <strong style="color:#111827;">Teléfono:</strong><br>
+                                    <span style="color:#4b5563;">
+                                        <?= htmlspecialchars($telefono) ?>
+                                    </span>
+                                </td>
+                            </tr>
 
-        <div class="field">
-            <span class="label">Nombre:</span>
-            <span class="value"><?= htmlspecialchars($nombre) ?></span>
-        </div>
+                            <tr>
+                                <td style="padding:12px 0;">
+                                    <strong style="color:#111827;">Mensaje del Candidato:</strong>
 
-        <div class="field">
-            <span class="label">Correo:</span>
-            <span class="value"><?= htmlspecialchars($correo) ?></span>
-        </div>
+                                    <div style="
+                                        margin-top:10px;
+                                        padding:15px;
+                                        background:#f9fafb;
+                                        border-left:4px solid #1f4e79;
+                                        color:#4b5563;
+                                        line-height:1.6;
+                                    ">
+                                        <?= nl2br(htmlspecialchars($mensaje)) ?>
+                                    </div>
+                                </td>
+                            </tr>
 
-        <div class="field">
-            <span class="label">Teléfono:</span>
-            <span class="value"><?= htmlspecialchars($telefono) ?></span>
-        </div>
+                        </table>
 
-        <div class="field">
-            <span class="label">Mensaje:</span>
-            <div class="message-box">
-                <?= nl2br(htmlspecialchars($mensaje)) ?>
-            </div>
-        </div>
+                        <!-- Aviso de CV -->
+                        <div style="
+                            margin-top:25px;
+                            padding:15px;
+                            background:#eef6ff;
+                            border:1px solid #cfe2ff;
+                            border-radius:6px;
+                            color:#1f4e79;
+                            font-size:14px;
+                        ">
+                            <strong>Currículum Vitae:</strong> El archivo adjunto se encuentra incluido en este correo para su revisión.
+                        </div>
 
-        <div class="field">
-            <span class="badge">Curriculum adjunto en este correo</span>
-        </div>
+                    </td>
+                </tr>
 
-        <div class="footer">
-            Sistema automático de reclutamiento - RRHH
-        </div>
+                <!-- Footer -->
+                <tr>
+                    <td style="
+                        background:#f9fafb;
+                        border-top:1px solid #e5e7eb;
+                        padding:18px 30px;
+                        text-align:center;
+                        color:#6b7280;
+                        font-size:12px;
+                    ">
+                        Este correo fue generado automáticamente por el Sistema de Reclutamiento y Selección de Personal.
+                    </td>
+                </tr>
 
-    </div>
-    </body>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+</body>
 </html>
