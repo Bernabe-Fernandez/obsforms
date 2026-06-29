@@ -34,7 +34,6 @@
             }
         }
 
-
         private function createVacantes(string $nombre, string $correo, string $telefono, string $curriculum, string $mensaje)
         {
             // Obtener únicamente el nombre del archivo
