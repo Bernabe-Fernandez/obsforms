@@ -20,14 +20,24 @@ try {
         throw new Exception("Método no permitido. Use POST.");
     }
 
+    // *********** ESTOOO NO ES NECESARIO ***************////
     // Recibir datos enviados desde React (JSON)
-    $data = json_decode(file_get_contents("php://input"), true);
+    // $data = json_decode(file_get_contents("php://input"), true);
+    
 
-    $nombre   = trim($data['nombre'] ?? '');
-    $correo   = trim($data['correo'] ?? '');
-    $telefono = trim($data['telefono'] ?? '');
-    $empresa  = trim($data['empresa'] ?? '');
-    $mensaje  = trim($data['mensaje'] ?? '');
+
+    // $nombre   = trim($data['nombre'] ?? '');
+    // $correo   = trim($data['correo'] ?? '');
+    // $telefono = trim($data['telefono'] ?? '');
+    // $empresa  = trim($data['empresa'] ?? '');
+    // $mensaje  = trim($data['mensaje'] ?? '');
+
+    //tenemos la variable global $_post donde se guardan los datos enviados del formulario
+    $nombre   = trim($_POST['nombre'] ?? '');
+    $correo   = trim($_POST['correo'] ?? '');
+    $telefono = trim($_POST['telefono'] ?? '');
+    $mensaje  = trim($_POST['mensaje'] ?? '');
+    $empresa  = trim($_POST['empresa'] ?? '');
 
    
     // VALIDACIONES
@@ -65,21 +75,23 @@ try {
     $contacto->procesarContacto($nombre, $correo, $telefono, $empresa, $mensaje);
 
 
-    $stmt = $conexion->prepare(
-        "INSERT INTO vt_contactos (nombre, correo, telefono, empresa, mensaje)
-         VALUES (?, ?, ?, ?, ?)"
-    );
+    // ************ porque aca haces de nuevo una insercuion a la bd lo estas generando dos veces ************
 
-    $stmt->bind_param("sssss", $nombre, $correo, $telefono, $empresa, $mensaje);
+    // $stmt = $conexion->prepare(
+    //     "INSERT INTO vt_contactos (nombre, correo, telefono, empresa, mensaje)
+    //      VALUES (?, ?, ?, ?, ?)"
+    // );
 
-    if (!$stmt->execute()) {
-        throw new Exception("Error al guardar: " . $stmt->error);
-    }
+    // $stmt->bind_param("sssss", $nombre, $correo, $telefono, $empresa, $mensaje);
 
-    echo json_encode([
-        "icono" => "success",
-        "mensaje" => "Mensaje enviado correctamente."
-    ]);
+    // if (!$stmt->execute()) {
+    //     throw new Exception("Error al guardar: " . $stmt->error);
+    // }
+
+    // echo json_encode([
+    //     "icono" => "success",
+    //     "mensaje" => "Mensaje enviado correctamente."
+    // ]);
 
 } catch (Exception $e) {
 
