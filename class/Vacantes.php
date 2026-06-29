@@ -27,7 +27,7 @@
 {
             try {
                 $this->createVacantes($nombre, $correo, $telefono, $curriculum, $mensaje);
-                $this->sendCotizacion($nombre, $correo, $telefono, $mensaje, $curriculum);
+                $this->sendVacantes($nombre, $correo, $telefono, $mensaje, $curriculum);
             } catch (Exception $e) {
                 error_log($e->getMessage());
                 throw $e;
@@ -74,7 +74,7 @@
             }
         }
 
-        private function sendCotizacion(
+        private function sendVacantes(
             string $nombre,
             string $correo,
             string $telefono,
@@ -104,6 +104,8 @@
                 );
 
                 $mail->addAddress('sistemas@omnibandas.com.mx', 'RRHH');
+                $mail->addCC('mercadotecnia@omnibandas.com.mx', 'MKT');    
+
                 $mail->Subject = 'Nueva solicitud de vacante';
 
                 // =========================
