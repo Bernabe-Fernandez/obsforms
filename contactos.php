@@ -20,24 +20,16 @@ try {
         throw new Exception("Método no permitido. Use POST.");
     }
 
-    // *********** ESTOOO NO ES NECESARIO ***************////
     // Recibir datos enviados desde React (JSON)
-    // $data = json_decode(file_get_contents("php://input"), true);
+    $data = json_decode(file_get_contents("php://input"), true);
     
 
 
-    // $nombre   = trim($data['nombre'] ?? '');
-    // $correo   = trim($data['correo'] ?? '');
-    // $telefono = trim($data['telefono'] ?? '');
-    // $empresa  = trim($data['empresa'] ?? '');
-    // $mensaje  = trim($data['mensaje'] ?? '');
-
-    //tenemos la variable global $_post donde se guardan los datos enviados del formulario
-    $nombre   = trim($_POST['nombre'] ?? '');
-    $correo   = trim($_POST['correo'] ?? '');
-    $telefono = trim($_POST['telefono'] ?? '');
-    $mensaje  = trim($_POST['mensaje'] ?? '');
-    $empresa  = trim($_POST['empresa'] ?? '');
+    $nombre   = trim($data['nombre'] ?? '');
+    $correo   = trim($data['correo'] ?? '');
+    $telefono = trim($data['telefono'] ?? '');
+    $empresa  = trim($data['empresa'] ?? '');
+    $mensaje  = trim($data['mensaje'] ?? '');
 
    
     // VALIDACIONES
