@@ -22,6 +22,8 @@ try {
 
     // Recibir datos enviados desde React (JSON)
     $data = json_decode(file_get_contents("php://input"), true);
+    
+
 
     $nombre   = trim($data['nombre'] ?? '');
     $correo   = trim($data['correo'] ?? '');
@@ -65,21 +67,23 @@ try {
     $contacto->procesarContacto($nombre, $correo, $telefono, $empresa, $mensaje);
 
 
-    $stmt = $conexion->prepare(
-        "INSERT INTO vt_contactos (nombre, correo, telefono, empresa, mensaje)
-         VALUES (?, ?, ?, ?, ?)"
-    );
+    // ************ porque aca haces de nuevo una insercuion a la bd lo estas generando dos veces ************
 
-    $stmt->bind_param("sssss", $nombre, $correo, $telefono, $empresa, $mensaje);
+    // $stmt = $conexion->prepare(
+    //     "INSERT INTO vt_contactos (nombre, correo, telefono, empresa, mensaje)
+    //      VALUES (?, ?, ?, ?, ?)"
+    // );
 
-    if (!$stmt->execute()) {
-        throw new Exception("Error al guardar: " . $stmt->error);
-    }
+    // $stmt->bind_param("sssss", $nombre, $correo, $telefono, $empresa, $mensaje);
 
-    echo json_encode([
-        "icono" => "success",
-        "mensaje" => "Mensaje enviado correctamente."
-    ]);
+    // if (!$stmt->execute()) {
+    //     throw new Exception("Error al guardar: " . $stmt->error);
+    // }
+
+    // echo json_encode([
+    //     "icono" => "success",
+    //     "mensaje" => "Mensaje enviado correctamente."
+    // ]);
 
 } catch (Exception $e) {
 
