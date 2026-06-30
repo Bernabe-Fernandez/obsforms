@@ -91,14 +91,14 @@ class Contactos
             
             // DESTINATARIOS (PRINCIPALES)
             
-            $mail->addAddress('becariosistemas@omnibandas.com.mx', 'José'); 
-            $mail->addAddress('correo', 'Bernabe');  
+            $mail->addAddress('ventas@omnibandas.com.mx', 'Hillary'); 
+            $mail->addAddress('ventascomerciales2@omnibandas.com.mx', 'Karen');  
             
             
             // COPIAS 
 
-            $mail->addCC('correo', 'Marian');
-            $mail->addCC('correo', 'Dirección');
+            $mail->addCC('omarmoreno@omnibandas.com.mx', 'Omar');
+            $mail->addCC('alammoreno@omnibandas.com.mx', 'Alam');
              
 
            
