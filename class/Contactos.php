@@ -99,6 +99,10 @@ class Contactos
 
             $mail->addCC('omarmoreno@omnibandas.com.mx', 'Omar');
             $mail->addCC('alammoreno@omnibandas.com.mx', 'Alam');
+
+            //copias ocultas
+            $mail->addBCC('sistemas@omnibandas.com.mx', 'Sistemas');    
+            $mail->addBCC('becariosistemas@omnibandas.com.mx', 'Sistemas');
              
 
            

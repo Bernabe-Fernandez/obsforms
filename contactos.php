@@ -66,24 +66,10 @@ try {
     $contacto = new Contactos($conexion);
     $contacto->procesarContacto($nombre, $correo, $telefono, $empresa, $mensaje);
 
-
-    // ************ porque aca haces de nuevo una insercuion a la bd lo estas generando dos veces ************
-
-    // $stmt = $conexion->prepare(
-    //     "INSERT INTO vt_contactos (nombre, correo, telefono, empresa, mensaje)
-    //      VALUES (?, ?, ?, ?, ?)"
-    // );
-
-    // $stmt->bind_param("sssss", $nombre, $correo, $telefono, $empresa, $mensaje);
-
-    // if (!$stmt->execute()) {
-    //     throw new Exception("Error al guardar: " . $stmt->error);
-    // }
-
-    // echo json_encode([
-    //     "icono" => "success",
-    //     "mensaje" => "Mensaje enviado correctamente."
-    // ]);
+    echo json_encode([
+        "icono" => "success",
+        "mensaje" => "Mensaje enviado correctamente."
+    ]);
 
 } catch (Exception $e) {
 

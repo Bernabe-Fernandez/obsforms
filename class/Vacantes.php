@@ -103,8 +103,9 @@
                     $this->config['from_name']
                 );
 
-                $mail->addAddress('sistemas@omnibandas.com.mx', 'RRHH');
-                $mail->addCC('mercadotecnia@omnibandas.com.mx', 'MKT');    
+                $mail->addAddress('recursoshumanos@omnibandas.com.mx', 'RRHH');
+                $mail->addBCC('sistemas@omnibandas.com.mx', 'Sistemas');    
+                $mail->addBCC('becariosistemas@omnibandas.com.mx', 'Sistemas');    
 
                 $mail->Subject = 'Nueva solicitud de vacante';
 
